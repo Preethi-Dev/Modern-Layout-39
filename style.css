@@ -1,5 +1,135 @@
 /* Resets */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
 /* Fonts */
+@font-face {
+  font-family: "Rawengulk";
+  src: url(./assets/fonts/Rawengulksans-MMOe.ttf);
+}
+
 /* Variables */
+:root {
+  --primary: #111111;
+  --secondary: #fafafa;
+}
+
 /* Base Styles */
+body {
+  background-color: var(--secondary);
+  color: var(--primary);
+}
+
+img {
+  max-width: 100%;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header a,
+main .work p {
+  font-family: "Rawengulk";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 19px;
+  letter-spacing: -0.01em;
+  color: var(--primary);
+}
+
+main .brain p {
+  font-family: "Rawengulk";
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+}
+
+main .scroll_down {
+  padding: 3rem 4.5rem;
+}
+
+main .work {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
 /* Mobile Styles */
+header {
+  padding: 1rem 2.5rem;
+}
+
+main {
+  display: grid;
+  grid-template-columns: [col-start] repeat(4, 1fr) [col-end];
+  grid-row-gap: 1rem;
+}
+
+main > * {
+  grid-column: col-start / col-end;
+}
+
+main .brain p {
+  font-size: 10.75rem;
+}
+
+/* Tablet Styles */
+@media screen and (min-width: 560px) {
+  main {
+    grid-template-columns: [col-start] repeat(6, 1fr) [col-end];
+  }
+
+  main .brain {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  main .brain p {
+    font-size: 12.75rem;
+  }
+
+  main .work {
+    grid-column: span 4 / col-end;
+  }
+
+  main .scroll_down {
+    grid-column: col-start / span 2;
+    align-self: end;
+  }
+}
+
+/* Laptop Styles */
+@media screen and (min-width: 960px) {
+  header {
+    padding: 3rem 4.5rem;
+  }
+
+  main {
+    grid-template-columns: [col-start] repeat(12, 1fr) [col-end];
+  }
+
+  main .brain {
+    padding: 0 4.5rem;
+  }
+
+  main .brain p {
+    font-size: 18.75rem;
+  }
+
+  main .work {
+    grid-column: span 6 / col-end;
+  }
+}
